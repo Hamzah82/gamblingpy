@@ -13,7 +13,7 @@ A fun and interactive **gambling simulation game** built with Python! Test your 
 1️⃣ Run the Python script:
 
 ```bash
-python gambling_game.py
+python main.py
 ```
 
 2️⃣ Choose an option:
@@ -40,7 +40,7 @@ python gambling_game.py
 1️⃣ **Clone this repository**:
 
 ```bash
-git clone https://github.com/hamzah28/gamblingpy.git
+git clone https://github.com/hamzah82/gamblingpy.git
 ```
 
 2️⃣ **Navigate to the folder**:
@@ -71,5 +71,5 @@ Want to improve the game? Feel free to fork the repository and submit a pull req
 
 ## 🏆 License
 
-This project is **open-source** under the MIT License.
+This project is under the MIT License.
 
