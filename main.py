@@ -2,10 +2,8 @@ import random
 import time
 import os
 
-# Leaderboard file
 LEADERBOARD_FILE = "leaderboard.txt"
 
-# Initialize variables
 balance = 100  
 wins = 0
 losses = 0
@@ -17,11 +15,9 @@ total_bet = 0
 games_played = 0  
 biggest_win = 0  
 
-# Function to roll dice
 def roll():
     return random.randint(1, 6)
 
-# Function to display leaderboard
 def show_leaderboard():
     if not os.path.exists(LEADERBOARD_FILE):
         print("\n📜 The leaderboard is empty!")
@@ -36,12 +32,10 @@ def show_leaderboard():
         print(f"{idx}. {name} - 💰 {score}")
     print("=========================")
 
-# Function to save score to leaderboard
 def save_to_leaderboard(name, score):
     with open(LEADERBOARD_FILE, "a") as file:
         file.write(f"{name},{score}\n")
 
-# Main menu
 while True:
     print("\n🎲===== ULTIMATE GAMBLING SIMULATION =====🎲")
     choice = input("1️⃣ Play Game\n2️⃣ View Leaderboard\nChoose (1/2): ").strip()
@@ -52,16 +46,13 @@ while True:
     else:
         print("❌ Invalid choice!")
 
-# Main game loop
 while balance > 0:
     print(f"\n💰 Balance: {balance} | 🏆 Level: {level} | ⭐ XP: {xp} | 🔥 Streak: {streak}")
 
-    # Mode selection
     mode = "1"
     if level >= 10:
         mode = input("Select mode: 🎲 1 Dice (1) | 🎲🎲 2 Dice (2): ").strip()
 
-    # Bet input
     while True:
         try:
             bet = int(input("Enter your bet amount: "))
@@ -78,10 +69,8 @@ while balance > 0:
     games_played += 1  
 
     if mode == "1":
-        # User selects bet type first
         odd_even = int(input("Bet on? (Odd = 1, Even = 0): "))
         
-        # Dice roll happens AFTER selection
         dice = roll()
         print(f"🎲 The dice shows {dice}!")
 
@@ -99,7 +88,6 @@ while balance > 0:
             streak = 0  
 
     elif mode == "2" and level >= 10:
-        # User selects bet type first
         bet_type = int(input("Bet type: Odd/Even (1) | <7/>7 (2) | Exact Number (3) | Double (4): "))
 
         if bet_type == 1:
@@ -114,7 +102,6 @@ while balance > 0:
         elif bet_type == 4:
             print("Bet: You win if both dice show the same number (double).")
 
-        # Dice roll happens AFTER selection
         dice1, dice2 = roll(), roll()
         total_dice = dice1 + dice2
         print(f"🎲🎲 The dice show {dice1} and {dice2}! (Total: {total_dice})")
@@ -192,7 +179,6 @@ while balance > 0:
     if stop == "y":
         break
 
-# Player enters name for leaderboard
 player_name = input("\nEnter your name for the leaderboard: ").strip()
 save_to_leaderboard(player_name, balance)
 
